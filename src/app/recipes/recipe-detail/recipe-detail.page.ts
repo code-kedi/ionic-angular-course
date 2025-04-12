@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RecipesService } from '../recipes.service';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -7,7 +10,24 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class RecipeDetailPage implements OnInit {
-  constructor() {}
+  loadedRecipe: Recipe | undefined;
 
-  ngOnInit() {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private recipesService: RecipesService
+  ) {}
+
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      if (!paramMap.has('recipeId')) {
+        // redirect
+        return;
+      }
+
+      const recipeId: string | null = paramMap.get('recipeId');
+      if (recipeId != null) {
+        this.loadedRecipe = this.recipesService.getRecipe(recipeId);
+      }
+    });
+  }
 }
