@@ -7,7 +7,7 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     @for (recipe of recipes; track recipe.id) {
-    <ion-item>
+    <ion-item [routerLink]="['./', recipe.id]">
       <ion-avatar slot="start">
         <ion-img [src]="recipe.imageUrl"></ion-img>
       </ion-avatar>
