@@ -7,7 +7,6 @@ import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.page.html',
-  styleUrls: ['./recipe-detail.page.scss'],
   standalone: false,
 })
 export class RecipeDetailPage implements OnInit {

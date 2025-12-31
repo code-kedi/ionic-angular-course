@@ -5,7 +5,6 @@ import { RecipesService } from './recipes.service';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.page.html',
-  styleUrls: ['./recipes.page.scss'],
   standalone: false,
 })
 export class RecipesPage implements OnInit {
