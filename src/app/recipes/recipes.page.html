@@ -8,6 +8,10 @@
   <ion-list>
     @for (recipe of recipes; track recipe.id) {
     <app-recipe-item [recipeItem]="recipe"></app-recipe-item>
+    } @empty {
+    <ion-item lines="none">
+      <p>No recipes found. Please refresh ☺️</p>
+    </ion-item>
     }
   </ion-list>
 </ion-content>
